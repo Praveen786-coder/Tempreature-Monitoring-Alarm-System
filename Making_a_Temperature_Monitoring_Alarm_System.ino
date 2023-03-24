@@ -3,6 +3,7 @@ Servo gateServo;
 int inpin=A1;
 int Redled=10;
 int Blueled=11;
+int Greenled=12;
 int buzzer=9;
 int adc_val;
 float eq_val;
@@ -25,8 +26,6 @@ void loop()
   Serial.println(temp_val);
   if(temp_val<15)
   {
-    digitalWrite(buzzer,HIGH);
-    digitalWrite(buzzer,LOW);
     digitalWrite(Redled,HIGH);
     digitalWrite(Redled,LOW);
     gateServo.write(0);
@@ -41,7 +40,9 @@ void loop()
   }
   else
   {
-    gateServo.write(90);
+    digitalWrite(Greenled,HIGH);
+    digitalWrite(Greenled,LOW);
   }
-  delay(100);  
+  delay(0);  
 }
+
